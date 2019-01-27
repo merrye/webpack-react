@@ -2,7 +2,7 @@ import { GET_USER_INFO_FAIL, GET_USER_INFO_SUCCESS, GET_USER_INFO_REQUEST } from
 
 const initState = {
   isLoading: false,
-  userInfo: {},
+  userInfo: { name: 'Lubia', intro: 'this is initial state' },
   errorMessage: ''
 }
 
@@ -22,7 +22,8 @@ export default function reduces(state = initState, action) {
       return {
         ...state,
         isLoading: false,
-        userInfo: action.userInfo,
+        userInfo: action.result.data,
+        // userInfo: action.userInfo,
         errorMessage: ''
       }
 

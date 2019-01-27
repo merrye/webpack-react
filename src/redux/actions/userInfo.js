@@ -22,18 +22,22 @@ function getUserInfoFail() {
 }
 
 export function getUserInfo() {
-  return function(dispatch) {
-    dispatch(getUserInfoRequest())
-
-    return fetch('http://localhost:3000')
-      .then(res => {
-        return res.json()
-      })
-      .then(json => {
-        dispatch(getUserInfoSuccess(json))
-      })
-      .catch(() => {
-        dispatch(getUserInfoFail())
-      })
+  return {
+    types: [GET_USER_INFO_REQUEST, GET_USER_INFO_SUCCESS, GET_USER_INFO_FAIL],
+    // promise: client => client.get('http://localhost:3000')
+    promise: client => client.get('/api/users')
   }
+  // return function(dispatch) {
+  //   dispatch(getUserInfoRequest())
+  //   return fetch('http://localhost:3000')
+  //     .then(res => {
+  //       return res.json()
+  //     })
+  //     .then(json => {
+  //       dispatch(getUserInfoSuccess(json))
+  //     })
+  //     .catch(() => {
+  //       dispatch(getUserInfoFail())
+  //     })
+  // }
 }

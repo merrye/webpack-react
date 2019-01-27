@@ -5,13 +5,14 @@
   "license": "MIT",
   "scripts": {
     "start": "yarn dev",
-    "dev": "cross-env API=development webpack-dev-server --config webpack.config.js --open --colors --mode development",
-    "build": "cross-env API=production webpack --mode production"
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --config ./build/webpack.dev.config.js --open --colors --mode development",
+    "build": "cross-env NODE_ENV=production webpack --config ./build/webpack.prod.config.js --mode production"
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",
     "@babel/plugin-proposal-class-properties": "^7.3.0",
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+    "@babel/plugin-transform-runtime": "^7.2.0",
     "@babel/preset-env": "^7.3.1",
     "@babel/preset-react": "^7.0.0",
     "autoprefixer": "^9.4.6",
@@ -24,17 +25,23 @@
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^4.0.0-beta.3",
     "mini-css-extract-plugin": "^0.5.0",
+    "mockjs": "^1.0.1-beta3",
     "node-sass": "^4.11.0",
     "postcss-loader": "^3.0.0",
     "react-hot-loader": "^4.6.3",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
+    "uglifyjs-webpack-plugin": "^2.1.1",
     "url-loader": "^1.1.2",
     "webpack": "^4.29.0",
     "webpack-cli": "^3.2.1",
-    "webpack-dev-server": "^3.1.14"
+    "webpack-dev-server": "^3.1.14",
+    "webpack-merge": "^4.2.1"
   },
   "dependencies": {
+    "@babel/polyfill": "^7.2.5",
+    "@babel/runtime": "^7.3.1",
+    "axios": "^0.18.0",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-loadable": "^5.5.0",

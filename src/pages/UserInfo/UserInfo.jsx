@@ -4,7 +4,6 @@ import { getUserInfo } from '@/redux/actions/userInfo'
 
 function UserInfo(props) {
   const { isLoading, userInfo, errorMessage } = props.userInfo
-  // console.log(props)
   return (
     <>
       {isLoading ? (
