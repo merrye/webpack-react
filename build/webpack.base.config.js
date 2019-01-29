@@ -31,9 +31,9 @@ module.exports = {
         // 使用 babel-loader 处理 .js|.jsx 文件
         test: /\.(js|jsx)$/,
         exclude: /node_modules/, // 排除 node_modules 下的内容
-        // include: path.resolve(__dirname, '../src'),
-        loader: 'babel-loader?cacheDirectory'
-        // use: 'happypack/loader?id=babel'
+        include: path.resolve(__dirname, '../src'),
+        // loader: 'babel-loader?cacheDirectory'
+        use: 'happypack/loader?id=babel'
       },
 
       {
