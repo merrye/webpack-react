@@ -12,7 +12,8 @@ module.exports = webpackMerge(baseConfig, {
       {
         // 处理 sass-loader 等多个loader 处理 .scss 文件
         // 使用scss
-        test: /\.scss$/,
+        test: /\.(css|scss)$/,
+        include: path.resolve(__dirname, '../src'),
         use: [
           {
             loader: 'style-loader',
@@ -47,11 +48,6 @@ module.exports = webpackMerge(baseConfig, {
   plugins: [
     // 热更新
     new webpack.HotModuleReplacementPlugin(),
-
-    // 开发环境引入 mock
-    new webpack.DefinePlugin({
-      MOCK: true
-    }),
 
     // 增加模块标识符
     new webpack.NamedModulesPlugin() // 推荐使用于开发环境
