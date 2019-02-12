@@ -29,6 +29,11 @@ const NotFound = Loadable({
   loading: Loading
 })
 
+const Hooks = Loadable({
+  loader: () => import('@/pages/Hooks/Hooks'),
+  loading: Loading
+})
+
 export default function GetRouter(props) {
   return (
     <Switch>
@@ -36,6 +41,7 @@ export default function GetRouter(props) {
       <Route path="/page" component={Page} />
       <Route path="/counter" component={Counter} />
       <Route path="/userInfo" component={UserInfo} />
+      <Route path="/hooks" component={Hooks} />
       <Route component={NotFound} />
     </Switch>
   )

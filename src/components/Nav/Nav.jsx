@@ -17,6 +17,9 @@ export default function Nav() {
       <li>
         <NavLink to="/userInfo">UserInfo</NavLink>
       </li>
+      <li>
+        <NavLink to="/hooks">Hooks</NavLink>
+      </li>
     </ul>
   )
 }
